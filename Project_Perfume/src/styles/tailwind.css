@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #fff9c7;
+    --primary-foreground: #79300f;
+    --primary-yellow: #f6d110;
+    --primary-dark: #62470e;
+
+    /* Secondary Colors */
+    --secondary-background: #ffffff;
+    --secondary-foreground: #333333;
+    --secondary-light: #f7f7f7;
+    --secondary-dark: #222222;
+
+    /* Accent Colors */
+    --accent-color: #854b14;
+    --accent-foreground: #ffffff;
+    --accent-light: #746b6b;
+    --accent-dark: #792f0f;
+
+    /* Border Colors */
+    --border-primary: #cccccc;
+    --border-secondary: #999999;
+    --border-light: #e0e0e0;
+    --border-dark: #666666;
+  }
+}
+
+@layer utilities {
+  /* Background Color Utilities */
+  .bg-primary-cream {
+    background-color: var(--primary-background);
+  }
+
+  .bg-primary-brown {
+    background-color: var(--primary-foreground);
+  }
+
+  .bg-primary-yellow {
+    background-color: var(--primary-yellow);
+  }
+
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+
+  .bg-secondary-white {
+    background-color: var(--secondary-background);
+  }
+
+  .bg-secondary-light {
+    background-color: var(--secondary-light);
+  }
+
+  .bg-secondary-dark {
+    background-color: var(--secondary-dark);
+  }
+
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
+
+  .bg-accent-dark {
+    background-color: var(--accent-dark);
+  }
+
+  /* Text Color Utilities */
+  .text-primary-brown {
+    color: var(--primary-foreground);
+  }
+
+  .text-secondary-gray {
+    color: var(--secondary-foreground);
+  }
+
+  .text-accent-white {
+    color: var(--accent-foreground);
+  }
+
+  .text-accent-light {
+    color: var(--accent-light);
+  }
+
+  .text-accent-dark {
+    color: var(--accent-dark);
+  }
+
+  /* Border Color Utilities */
+  .border-primary {
+    border-color: var(--border-primary);
+  }
+
+  .border-secondary {
+    border-color: var(--border-secondary);
+  }
+
+  .border-light {
+    border-color: var(--border-light);
+  }
+
+  .border-dark {
+    border-color: var(--border-dark);
+  }
+
+  /* Custom Shadow Utilities */
+  .shadow-custom {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
