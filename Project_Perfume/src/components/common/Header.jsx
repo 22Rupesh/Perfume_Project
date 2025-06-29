@@ -138,7 +138,7 @@ import React from "react";
 
 const Header = ({ darkMode, setDarkMode }) => {
   return (
-    <header className={`transition-all duration-300 ${darkMode ? "bg-[#220104]" : "bg-[#C0BA87]"}`}>
+    <header className={`transition-all duration-300 ${darkMode ? "bg-[#220104]" : "bg-[#F2F2F2]"}`}>
       {/* Top Banner */}
       <div className="bg-black text-white text-center py-2">
         <p className="text-[18px] font-inter">Free Delivery on Orders Over $999</p>

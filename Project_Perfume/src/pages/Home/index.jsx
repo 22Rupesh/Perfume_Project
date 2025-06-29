@@ -43,14 +43,14 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fff9c7] text-[#79300f] dark:bg-[#0d0603] dark:text-[#f6d110]">
+    <div className="min-h-screen bg-[#F2F2F2] text-[#79300f] dark:bg-[#0d0603] dark:text-[#f6d110]">
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <main>
         <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }}>
           <HeroSection />
         </motion.div>
 
-        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} id="latest" className="bg-[#f6d110] dark:bg-[#021914] py-16 px-6 shadow">
+        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} id="latest" className="bg-[#E7DDC6] dark:bg-[#021914] py-16 px-6 shadow">
           <div className="max-w-7xl mx-auto">
             <motion.h2 variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.7 }} className="text-[150px] font-dm-serif leading-[275px] mb-8">
               Latest Launch
@@ -64,24 +64,25 @@ const HomePage = () => {
                 <h3 className="text-[100px] font-alata leading-[138px] mb-4">Aventus</h3>
                 <p className="text-[23px] font-dm-sans leading-[29px] max-w-[512px] ml-auto">
                   Meet VESARII Ember Nocturne — a perfume forged in twilight, kissed by wild lavender,
-                  smoked cedar, and a whisper of fire-kissed amber.
+                  smoked cedar, and a whisper of fire-kissed amber. Designed to enchant from the very first breath.
                 </p>
               </motion.div>
             </motion.div>
           </div>
         </motion.section>
 
-        <motion.section variants={fadeIn("left", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="collection" className="bg-[#fff9c7] dark:bg-[#220104] py-16 px-6">
+        <motion.section variants={fadeIn("left", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="collection" className="bg-[#F2F2F2] dark:bg-[#220104] py-16 px-6">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <motion.div variants={fadeIn("left", 0.4)} className="flex-1">
               <h2 className="text-[80px] font-alata leading-[111px] mb-4">Aventus</h2>
               <p className="text-[30px] font-dm-sans leading-[39px] max-w-[504px] mb-8">
-                Meet VESARII Ember Nocturne — a perfume forged in twilight...
+                Meet VESARII Ember Nocturne — a perfume forged in twilight, kissed by wild lavender, smoked cedar, and a whisper of fire-kissed amber.<br/>
+                Designed to enchant from the very first breadth.
               </p>
               <Button variant="secondary"><a href="/all-fragrances">Discover More</a></Button>
             </motion.div>
             <motion.div variants={fadeIn("up", 0.4)} className="flex-1 flex justify-center">
-              <img src="/images/img_chatgpt_image_may_15_2025_052217_pm_1_1.png" alt="Luxury" className="w-[780px] h-[780px]" />
+              <img src="/images/img_chatgpt_image_may_15_2025_052217_pm_1_1.png" alt="Luxury" className="w-[724px] h-[524px]" />
             </motion.div>
             <motion.div variants={fadeIn("right", 0.4)} className="flex-1 text-right">
               <h3 className="text-[80px] font-dm-serif leading-[109px]">Luxury Collection</h3>
@@ -89,23 +90,23 @@ const HomePage = () => {
           </div>
         </motion.section>
 
-        <motion.section variants={fadeIn("right", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} className="bg-[#f6d110] dark:bg-[#021612] py-16 px-6">
+        <motion.section variants={fadeIn("right", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} className="bg-[#E7DDC6] dark:bg-[#021612] py-16 px-6">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <motion.div variants={fadeIn("left", 0.4)} className="flex-1">
               <h2 className="text-[80px] font-dm-serif leading-[109px]">Signature Collection</h2>
             </motion.div>
             <motion.div variants={fadeIn("up", 0.4)} className="flex-1 flex justify-center">
-              <img src="/images/img_chatgpt_image_may_15_2025_055628_pm_1_1.png" alt="Signature" className="w-[724px] h-[724px]" />
+              <img src="/images/img_chatgpt_image_may_15_2025_055628_pm_1_1.png" alt="Signature" className="w-[724px] h-[524px]" />
             </motion.div>
             <motion.div variants={fadeIn("right", 0.4)} className="flex-1 text-right">
               <h3 className="text-[100px] font-alata leading-[138px] mb-4">Aventus</h3>
-              <p className="text-[30px] font-dm-sans leading-[39px] max-w-[504px] ml-auto mb-8">Meet VESARII Ember Nocturne...</p>
+              <p className="text-[30px] font-dm-sans leading-[39px] max-w-[504px] ml-auto mb-8">Meet VESARII Ember Nocturne - a perfume foged in twiligent, kissed by  wild lavender, smoked cedar, and a whisper of fire-kissed amber. Designed to enchant from the very first breadth.</p>
               <Button variant="secondary"><a href="/all-fragrances">Discover More</a></Button>
             </motion.div>
           </div>
         </motion.section>
 
-        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="bestsellers" className="bg-[#fff9c7] dark:bg-[#220104] py-16 px-6">
+        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="bestsellers" className="bg-[#F2F2F2] dark:bg-[#220104] py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
             <motion.h2 variants={fadeIn("up", 0.3)} className="text-[150px] font-dm-serif leading-[206px] mb-16 shadow">Our Bestsellers</motion.h2>
             <motion.div variants={fadeIn("up", 0.4)} className="flex justify-center items-end space-x-8 mb-8">
@@ -124,7 +125,7 @@ const HomePage = () => {
           </div>
         </motion.section>
 
-        <motion.section variants={fadeIn("left", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="about" className="bg-[#f6d110] dark:bg-[#021914] py-16 px-6">
+        <motion.section variants={fadeIn("left", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="about" className="bg-[#E7DDC6] dark:bg-[#021914] py-16 px-6">
           <div className="max-w-7xl mx-auto flex items-center">
             <motion.div variants={fadeIn("left", 0.4)} className="flex-1">
               <img src="/images/img_chatgpt_image_may_16_2025_115910_am_1_2.png" alt="About us" className="w-[876px] h-[459px]" />
@@ -132,22 +133,24 @@ const HomePage = () => {
             <motion.div variants={fadeIn("right", 0.4)} className="flex-1 pl-16">
               <h2 className="text-[150px] font-dm-serif leading-[206px] mb-8">About Us</h2>
               <p className="text-[25px] font-joan leading-[32px] tracking-[1px] max-w-[502px]">
-                At Oloréve, we believe that fragrance is not just a scent...
+                At Oloréve, we believe that fragrance is not just a scent; it's a reflection of one's inner elegance, a journey through the senses. Our story is one of passion, dedication, and craftsmanship. Born out of a desire to create scents that embody luxury, sustainability, and beauty,<br/>
+                <br/>
+                Founded with the vision of offering timeless elegance, Olereve's fragnances are inspired by the beauty of nature and crafted with the utmost care. 
               </p>
             </motion.div>
           </div>
         </motion.section>
 
-        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} className="bg-[#fff9c7] dark:bg-[#220104] py-16 px-6">
+        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} className="bg-[#F2F2F2] dark:bg-[#220104] py-16 px-6">
           <motion.div variants={fadeIn("up", 0.4)} className="max-w-4xl mx-auto text-center">
             <h2 className="text-[100px] font-dm-serif leading-[138px] mb-8">Join Exclusive Circle</h2>
             <p className="text-[30px] font-joan leading-[38px] tracking-[1px] mb-12 max-w-[840px] mx-auto">
-              Subscribe to our newsletter for early access to limited edition releases...
+              Subscribe to our newsletter for early access to limited edition releases, private events, and the secrets behind our scent creations.
             </p>
-            <div className="mb-8">
+            <div className="mb-8 ">
               <div className="flex max-w-[876px] mx-auto">
-                <InputField type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 rounded-l-lg" />
-                <Button onClick={handleSubscribe} className="bg-[#f6d110] dark:bg-[#79300f] text-white text-[30px] font-joan px-8 py-4 rounded-r-lg">
+                <InputField type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="flex-1 rounded-l-lg bg-[#E7DDC6] " />
+                <Button onClick={handleSubscribe} className="bg-[#E7DDC6] dark:bg-[#79300f] text-white text-[30px] font-joan px-8 py-4 rounded-r-lg">
                   Subscribe
                 </Button>
               </div>

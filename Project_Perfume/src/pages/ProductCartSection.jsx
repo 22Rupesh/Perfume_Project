@@ -1,10 +1,12 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
+// import React, { useState, useEffect } from 'react';
+import Header from '@/components/common/Header';
 
 
 
@@ -22,10 +24,23 @@ const ProductCartSection = () => {
     };
 
     const sizes = ["30ML", "50ML", "100ML", "200ML"];
+      const [darkMode, setDarkMode] = useState(false);
+    
+      useEffect(() => {
+        const stored = localStorage.getItem('darkMode');
+        if (stored !== null) {
+          setDarkMode(JSON.parse(stored));
+        }
+      }, []);
+    
+      useEffect(() => {
+        localStorage.setItem('darkMode', JSON.stringify(darkMode));
+        document.documentElement.classList.toggle('dark', darkMode);
+      }, [darkMode]);
 
     return (
-        <div className="bg-[#C0BA87] px-6 py-10 font-sans text-[#3b220c]">
-            
+        <div className="bg-[#C0BA87] px-6 py-10 font-sans text-[#3b220c] dark:bg-[#220104] dark:text-[#f6d110]">
+            <Header darkMode={darkMode} setDarkMode={setDarkMode} />
             {/* Top Section */}
             <motion.div
                 variants={fadeIn("up", 0.2)}
@@ -93,7 +108,7 @@ const ProductCartSection = () => {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: false, amount: 0.7 }}
-                        className="text-3xl font-bold mb-2"
+                        className="text-3xl font-bold mb-2 dark:text-[#EDD1D1]"
                     >
                         Ember Nocturne
                     </motion.h2>
@@ -102,7 +117,7 @@ const ProductCartSection = () => {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: false, amount: 0.4 }}
-                        className="text-sm text-gray-700 mb-1"
+                        className="text-sm text-gray-700 mb-1 dark:text-[#EDD1D1]"
                     >
                         Lavender, Cedar, & Amber
                     </motion.p>
@@ -120,7 +135,7 @@ const ProductCartSection = () => {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: false, amount: 0.4 }}
-                        className="text-xl font-semibold mb-4"
+                        className="text-xl font-semibold mb-4 dark:text-[#EDD1D1]"
                     >
                         $499
                     </motion.p>
@@ -181,7 +196,7 @@ const ProductCartSection = () => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: false, amount: 0.4 }}
-                            className="text-sm underline underline-offset-2 text-[#3b220c] hover:text-[#5e160e]"
+                            className="text-sm underline underline-offset-2 text-[#3b220c] hover:text-[#5e160e] dark:text-[#EDD1D1]"
                         >
                             Personalize My Bottle <motion.span variants={fadeIn("up", 0.6)} className="ml-2 font-medium">Free</motion.span>
                         </motion.button>
@@ -237,7 +252,7 @@ const ProductCartSection = () => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: false, amount: 0.4 }}
-                            className="bg-[#3b220c] w-[347px] h-[43px] text-white px-6 py-2 text-sm font-medium hover:bg-[#5e160e]"
+                            className="bg-[#3b220c] w-[347px] h-[43px] text-white px-6 py-2 text-sm font-medium hover:bg-[#5e160e] dark:text-[#F5E3BF]"
                         >
                             Add to Cart
                         </motion.button>

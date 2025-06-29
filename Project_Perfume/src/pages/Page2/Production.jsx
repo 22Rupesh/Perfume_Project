@@ -13,7 +13,9 @@ const ProductCard = ({ name, price, description, image }) => {
       <p className="text-gray-600 dark:text-[#EDD1D1]">${price}</p>
       <p className="text-sm text-gray-500 text-center dark:text-[#f6d110]">{description}</p>
       <button className="mt-2 bg-transparent   text-gray-700 dark:text-[#EDD1D1] px-4 py-2 rounded hover:bg-gray-700 hover:text-white">
-        Add to Cart
+        <a href="/product-cart">
+          Add to Cart
+        </a>
       </button>
     </div>
   );

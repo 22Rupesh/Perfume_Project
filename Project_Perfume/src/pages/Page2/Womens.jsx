@@ -336,9 +336,9 @@ import { fadeIn } from '../../variants';
 
 // Import local images
 import aventus1 from './assets/aventus1.jpg';
-import aventus2 from './assets/aventus1.jpg';
-import aventus3 from './assets/aventus1.jpg';
-import aventus4 from './assets/aventus1.jpg';
+import aventus2 from '../../../public/images/amberNocturne4.png';
+import aventus3 from '../../../public/images/millesimeImperial.png';
+import aventus4 from '../../../public/images/amberNocturne4.png';
 import aventus5 from './assets/aventus1.jpg';
 import aventus6 from './assets/aventus1.jpg';
 import millesime from './assets/millesime.jpg';
@@ -582,7 +582,10 @@ const WomensCollection = () => {
                 viewport={{ once: false, amount: 0.4 }}
                 className="mt-4 bg-transparent border border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] px-4 py-2 rounded hover:bg-[#79300f] dark:hover:bg-[#dab61f] hover:text-white dark:hover:text-[#0d0603]"
               >
-                Shop Now
+                <a href="/product-cart">
+                 Shop Now
+                </a>
+               
               </motion.button>
             </motion.div>
           </motion.div>

@@ -131,7 +131,7 @@ const UniversalCollection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.4 }}
-                href="#"
+                href="/product-cart"
                 className="inline-block text-sm font-semibold border-b-2 border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] hover:text-[#5e160e] dark:hover:text-[#dab61f] transition duration-300 px-30"
               >
                 Discover More
@@ -192,7 +192,7 @@ const UniversalCollection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.4 }}
-                href="#"
+                href="/product-cart"
                 className="text-sm font-semibold border-b-2 border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] hover:text-[#5e160e] dark:hover:text-[#dab61f] transition duration-300"
               >
                 Discover More
@@ -287,7 +287,7 @@ const UniversalCollection = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.4 }}
-                href="#"
+                href="/product-cart"
                 className="text-sm font-semibold border-b-2 border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] hover:text-[#5e160e] dark:hover:text-[#dab61f] transition duration-300"
               >
                 Discover More
@@ -348,7 +348,7 @@ const UniversalCollection = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.4 }}
-        href="#"
+        href="/product-cart"
         className="text-sm font-semibold border-b-2 border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] hover:text-[#5e160e] dark:hover:text-[#dab61f] transition duration-300"
       >
         Discover More

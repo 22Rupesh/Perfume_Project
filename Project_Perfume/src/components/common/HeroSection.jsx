@@ -57,7 +57,7 @@ import Button from '../ui/Button';
 
 const HeroSection = () => {
   return (
-    <section className="bg-[#fff9c7] dark:bg-[#220104] py-16 px-6">
+    <section className="bg-[#F2F2F2] dark:bg-[#220104] py-16 px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left content */}
         <div className="flex-1">
