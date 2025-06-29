@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "serve": "vite preview",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.9",
     "@tailwindcss/typography": "^0.5.16",
+    "framer-motion": "^12.19.2",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
