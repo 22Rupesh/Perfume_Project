@@ -1,18 +1,3 @@
-// import React from 'react';
-
-// const Footer = () => {
-//   return (
-//     <footer className="bg-black text-white">
-//       <img 
-//         src="/images/img_image_37.png" 
-//         alt="Footer background" 
-//         className="w-full h-[599px] object-cover"
-//       />
-//     </footer>
-//   );
-// };
-
-// export default Footer;
 
 
 import React from "react";

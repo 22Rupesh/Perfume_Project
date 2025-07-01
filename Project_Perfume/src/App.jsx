@@ -8,10 +8,6 @@ function App() {
   return (
     <div>
       <Routes />
-
-      {/* <div className={darkMode ? "dark" : ""}>
-        <AllFragrancesSection darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div> */}
     </div>
 
 

@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import Header from '../components/common/Header';
 import Footer from '@/components/common/Footer';
@@ -376,85 +372,7 @@ const UniversalCollection = () => {
   </motion.div>
 </motion.section>
 
-        {/* Commented-Out Section */}
-        {/* <motion.section
-          variants={fadeIn("up", 0.2)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
-          className="mb-12"
-        >
-          <motion.h2
-            variants={fadeIn("up", 0.2)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.7 }}
-            className="text-2xl font-semibold text-[#79300f] dark:text-[#f6d110] mb-4"
-          >
-            Universal Collection
-          </motion.h2>
-          <motion.div
-            variants={fadeIn("up", 0.4)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.4 }}
-            className="flex space-x-8"
-          >
-            <motion.div
-              variants={fadeIn("left", 0.4)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.4 }}
-              className="w-1/3"
-            >
-              <motion.img
-                variants={fadeIn("left", 0.6)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.4 }}
-                src={amberNocturne2}
-                alt="Amber Nocturne"
-                className="w-full h-64 object-cover rounded-lg mb-4"
-              />
-            </motion.div>
-            <motion.div
-              variants={fadeIn("right", 0.4)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.4 }}
-              className="w-2/3"
-            >
-              <motion.h3
-                variants={fadeIn("up", 0.4)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.4 }}
-                className="text-xl font-semibold text-[#79300f] dark:text-[#f6d110] mb-2"
-              >
-                Meet Vesarii Amber Nocturne
-              </motion.h3>
-              <motion.p
-                variants={fadeIn("up", 0.4)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.4 }}
-                className="text-[#3d2b1f] dark:text-white"
-              >
-                A perfume forged in twilight, kissed by wild lavender, smoked cedar, and a whisper of fire-kissed amber.
-                Designed to enchant from the very first breath.
-              </motion.p>
-              <motion.button
-                variants={fadeIn("up", 0.6)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.4 }}
-                className="mt-4 bg-transparent border border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] px-4 py-2 rounded hover:bg-[#79300f] dark:hover:bg-[#dab61f] hover:text-white dark:hover:text-[#0d0603]"
-              >
-                Discover More
-              </motion.button>
-            </motion.div>
-          </motion.div>
-        </motion.section> */}
+ 
       </main>
       <Footer />
     </div>
