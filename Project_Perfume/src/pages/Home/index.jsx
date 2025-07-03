@@ -64,6 +64,28 @@ const HomePage = () => {
     "/images/img_chatgpt_image_may_15_2025_055628_pm_1_1.png",
   ];
 
+
+  const items = [
+    {
+      src: "/images/img_may_16_2025_113008_am_3.png",
+      name: "Aventus",
+      description:
+        "Meet VESARII Ember Nocturne — a perfume forged in twilight, kissed by wild lavender, smoked cedar, and a whisper of fire-kissed amber. Designed to enchant from the very first breath.",
+    },
+    {
+      src: "/images/img_chatgpt_image_may_15_2025_055628_pm_1_1.png",
+      name: "Ember Blaze",
+      description:
+        "A bold fragrance for the confident soul, Ember Blaze blends smoky spice with hints of citrus and leather to create a trail that’s unforgettable.",
+    },
+    {
+      src: "/images/img_may_16_2025_113008_am_3.png",
+      name: "Twilight Dusk",
+      description:
+        "Soft yet mysterious, Twilight Dusk carries floral undertones wrapped in amber and woody warmth, perfect for evenings under the stars.",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#F2F2F2] text-[#79300f] dark:bg-[#0d0603] dark:text-[#f6d110]">
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -71,6 +93,10 @@ const HomePage = () => {
         <motion.div variants={fadeIn('up', 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }}>
           <HeroSection />
         </motion.div>
+
+
+
+        {/* modified latest launch */}
 
 
     <motion.section
@@ -84,57 +110,52 @@ const HomePage = () => {
       <div className="max-w-7xl mx-auto">
         <motion.h2
           variants={fadeIn("up", 0.2)}
-          className="text-[150px] font-dm-serif leading-[275px] mb-8"
+          className="text-[150px] font-dm-serif leading-[275px] mb-8 text-center"
         >
           Latest Launch
         </motion.h2>
 
+        {/* Horizontal Scroll - One Item at a Time */}
         <motion.div
           variants={fadeIn("up", 0.4)}
-          className="flex items-start justify-between gap-8"
+          className="overflow-x-scroll scroll-smooth no-scrollbar"
+          ref={scrollRef}
         >
-          {/* Scrollable Image Row without Arrows */}
-          <div className="w-[660px]">
-            <div
-              ref={scrollRef}
-              className="overflow-x-scroll scroll-smooth no-scrollbar px-12"
-            >
-              <div className="flex gap-8 whitespace-nowrap w-fit">
-                {images.map((src, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="flex-shrink-0 w-[309px] h-[309px] overflow-hidden"
-                  >
-                    <motion.img
-                      src={src}
-                      alt={`Launch ${index}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <div className="flex gap-16 w-fit px-6">
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[1000px] flex items-start gap-12"
+              >
+                {/* Image */}
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-[309px] h-[309px] overflow-hidden"
+                >
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
 
-          {/* Fixed Description */}
-          <motion.div
-            variants={fadeIn("up", 0.6)}
-            className="text-right max-w-[512px]"
-          >
-            <h3 className="text-[100px] font-alata leading-[138px] mb-4">
-              Aventus
-            </h3>
-            <p className="text-[23px] font-dm-sans leading-[29px]">
-              Meet VESARII Ember Nocturne — a perfume forged in twilight,
-              kissed by wild lavender, smoked cedar, and a whisper of
-              fire-kissed amber. Designed to enchant from the very first breath.
-            </p>
-          </motion.div>
+                {/* Description on the Right */}
+                <div className="max-w-[600px]">
+                  <h3 className="text-[100px] font-alata leading-[138px] mb-4">
+                    {item.name}
+                  </h3>
+                  <p className="text-[23px] font-dm-sans leading-[29px]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
-    </motion.section> 
+    </motion.section>
+
 
 
         <motion.section variants={fadeIn("left", 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }} id="collection" className="bg-[#F2F2F2] dark:bg-[#220104] py-16 px-6">
