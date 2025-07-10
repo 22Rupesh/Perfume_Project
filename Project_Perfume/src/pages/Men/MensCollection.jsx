@@ -1,35 +1,23 @@
 
 
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from '../../components/common/Header';
 import ProductCard from './Production';
 import Footer from '@/components/common/Footer';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../variants';
 
-// Import local images
+// Local images
 import aventus1 from './assets/aventus1.jpg';
 import aventus2 from './assets/image 31.png';
 import aventus3 from './assets/aventus1.jpg';
 import aventus4 from './assets/image 37.png';
 import aventus5 from './assets/image 29.png';
 import aventus6 from './assets/image.png';
-import millesime from './assets/millesime.jpg';
-import heroImage from './assets/aventus1.jpg'; // Replace with your correct hero image
-
-
-import hero1 from './assets/Rectangle 35.png';
-import hero2 from './assets/Rectangle 36.png';
-import hero3 from './assets/Rectangle 37.png';
-
-
-const heroImages = [hero1, hero2, hero3]; 
-
+import marmaladeBanner from './assets/millesime.jpg';
 
 const MensCollection = () => {
   const [darkMode, setDarkMode] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollRef = useRef(null);
 
   useEffect(() => {
     const stored = localStorage.getItem('darkMode');
@@ -43,174 +31,128 @@ const MensCollection = () => {
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
-    // Auto-scroll every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({
-        left: scrollRef.current.offsetWidth * currentIndex,
-        behavior: 'smooth',
-      });
-    }
-  }, [currentIndex]);
-
   const products = [
-    { name: "Aventus", price: 455, description: "Dry Woods, Fresh, Citrus & Fruity", image: aventus1 },
-    { name: "Aventus", price: 455, description: "Dry Woods, Fresh, Citrus & Fruity", image: aventus2 },
-    { name: "Aventus", price: 455, description: "Dry Woods, Fresh, Citrus & Fruity", image: aventus3 },
-    { name: "Aventus", price: 455, description: "Dry Woods, Fresh, Citrus & Fruity", image: aventus4 },
-    { name: "Aventus", price: 455, description: "Dry Woods, Fresh, Citrus & Fruity", image: aventus5 },
-    { name: "Aventus", price: 455, description: "Dry Woods, Fresh, Citrus & Fruity", image: aventus6 },
+    { name: 'Aventus', price: '$455', desc: 'A new expression of bitter Orange. Sharp yet sweet', image: aventus1 },
+    { name: 'Aventus', price: '$455', desc: 'A new expression of bitter Orange. Sharp yet sweet', image: aventus2 },
+    { name: 'Aventus', price: '$455', desc: 'A new expression of bitter Orange. Sharp yet sweet', image: aventus3 },
   ];
 
   return (
-    <div className="min-h-screen bg-[#F2F2F2] text-[#79300f] dark:bg-[#220104] dark:text-[#f6d110]">
-      {/* <Header darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+    <div className="bg-white dark:bg-black text-[#79300f] dark:text-[#f6d110]">
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className="max-w-7xl mx-auto py-12 px-4">
-        {/* Hero Section */}
-  <motion.section
-    variants={fadeIn("up", 0.2)}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: false, amount: 0.4 }}
-    className="text-center px-6 mb-10"
-  >
-    <motion.h1
-      variants={fadeIn("up", 0.2)}
-      className="text-5xl font-display font-bold text-[#4b2c10] drop-shadow-md"
-    >
-      Vesarii
-    </motion.h1>
-    <motion.h2
-      variants={fadeIn("up", 0.3)}
-      className="text-2xl font-display font-semibold text-[#4b2c10] my-6"
-    >
-      Men's Fragrances
-    </motion.h2>
-    <motion.p
-      variants={fadeIn("up", 0.4)}
-      className="font-sans text-[20px] text-[#3d2b1f] leading-relaxed max-w-3xl mx-auto"
-    >
-      Creating iconic hand-crafted perfume for men, Creed has established a legacy of acclaimed
-      fragrance, cologne and aftershave for men. Explore our collection of bestselling Creed men's
-      fragrances including Creed Aventus, Creed Bois du Portugal, Creed Viking, Creed Silver Mountain Water,
-      the classic and woody Royal Oud and Green Irish Tweed.
-    </motion.p>
-  </motion.section>
-
-  {/* Hero Image Scroll Section */}
-  <motion.section
-    variants={fadeIn("up", 0.2)}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: false, amount: 0.4 }}
-    className="relative overflow-hidden w-full"
-  >
-    <div
-      ref={scrollRef}
-      className="flex overflow-x-scroll no-scrollbar scroll-smooth w-full h-[500px]"
-    >
-      {heroImages.map((src, index) => (
-        <div
-          key={index}
-          className="w-full flex-shrink-0 h-[500px]"
+        <motion.section
+          variants={fadeIn('up', 0.2)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.4 }}
+          className="text-center px-6 mb-10"
         >
-          <img
-            src={src}
-            alt={`hero-${index}`}
-            className="w-screen  h-[620px] object-cover object-center"
-          />
-        </div>
-      ))}
-    </div>
-  </motion.section>
-        {/* Popular Products */}
-        <motion.section className="mb-12">
-          <motion.h2 className="text-2xl font-semibold text-[#79300f] dark:text-[#EDD1D1] mb-4">
-            Popular Products
+          <motion.h2
+            variants={fadeIn('up', 0.3)}
+            className="text-3xl font-semibold text-[#4b2c10] my-6"
+          >
+            Men's Fragrances
           </motion.h2>
+          <motion.p
+            variants={fadeIn('up', 0.4)}
+            className="text-[18px] text-[#3d2b1f] leading-relaxed max-w-3xl mx-auto"
+          >
+            Creating iconic hand-crafted perfume for men, Creed has established a legacy of acclaimed
+            fragrance, cologne and aftershave for men. Explore our collection of bestselling Creed men's
+            fragrances including Creed Aventus and Silver Mountain Water, the classic and woody Royal Oud and Green Irish Tweed.
+          </motion.p>
+        </motion.section>
 
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex space-x-4">
-              {["Aventus", "Aventus", "Aventus", "Aventus"].map((label, idx) => (
-                <button
-                  key={idx}
-                  className="bg-transparent border border-[#5e160e] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] px-4 py-2 rounded hover:bg-[#79300f] dark:hover:bg-[#dab61f] hover:text-white dark:hover:text-[#0d0603]"
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-            <div className="bg-[#f6d110] text-[#79300f] px-3 py-1 rounded-full text-sm shadow">
-              28 Products
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-14">
-            {products.map((product, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn("up", 0.2 * index)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.4 }}
-              >
-                <ProductCard
-                  name={product.name}
-                  price={product.price}
-                  description={product.description}
-                  image={product.image}
-                />
-              </motion.div>
+        {/* Just Arrived */}
+        <motion.section className="bg-[#f7f7f7] py-12">
+          <h3 className="text-3xl text-center mb-8">Just Arrived</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4">
+            {products.map((item, idx) => (
+              <div key={idx} className="bg-white p-4 text-center shadow">
+                <img src={item.image} alt={item.name} className="w-full h-64 object-contain mb-4" />
+                <h4 className="text-xl font-semibold mb-2">{item.name}</h4>
+                <p className="text-sm text-gray-600 mb-2">{item.desc}</p>
+                <p className="text-lg font-bold mb-4">{item.price}</p>
+                <button className="bg-[#79300f] text-white px-4 py-2 rounded">Add to Cart</button>
+              </div>
             ))}
           </div>
+        </motion.section>
 
-          <div className="flex flex-col items-center mt-10">
-            <button className="bg-transparent border border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] px-4 py-2 rounded hover:bg-[#79300f] dark:hover:bg-[#dab61f] hover:text-white dark:hover:text-[#0d0603]">
-              Load More
-            </button>
-            <div className="w-[60px] h-[2px] bg-[#f6d110] mt-1"></div>
-            <p className="text-center text-[#3d2b1f] dark:text-white mt-4">Viewing 6 of 28</p>
+        {/* Marmalade Banner */}
+        <motion.section className="py-16 relative">
+          <img src={marmaladeBanner} alt="Shop Marmalade" className="w-full h-[400px] object-cover" />
+          <div className="absolute bottom-6 left-6 bg-white px-4 py-2 font-semibold">
+            Shop Orange Marmalade Cologne
           </div>
         </motion.section>
 
-        {/* Exclusive Fragrances */}
-        <motion.section className="mb-12">
-          <motion.h2 className="text-2xl font-semibold text-[#8B5A2B] dark:text-[#EDD1D1] mb-4">
-            Explore Exclusive Fragrances
-          </motion.h2>
-          <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8">
-            <div className="md:w-1/3">
-              <img
-                src={millesime}
-                alt="Millésime Impérial"
-                className="w-full h-64 object-cover rounded-lg mb-4"
-              />
-            </div>
-            <div className="md:w-2/3">
-              <h3 className="text-xl font-semibold text-[#79300f] dark:text-[#EDD1D1] mb-2">
-                Millésime Impérial
-              </h3>
-              <p className="text-[#3d2b1f] dark:text-white">
-                Fresh and uplifting, Millésime Impérial radiates a sparkling scent with citrus and floral notes
-                of iris, lemon, bergamot, mandarin orange and a touch of blackcurrant. This scent then settles into
-                a rich, musky base of sandalwood, ambergris and musk. Housed in a shimmering marine accord, this
-                fragrance evokes the golden sands of a warm, sunny beach. Millésime Impérial is the pinnacle of luxury.
-              </p>
-              <button className="mt-4 bg-transparent border border-[#79300f] dark:border-[#f6d110] text-[#79300f] dark:text-[#f6d110] px-4 py-2 rounded hover:bg-[#79300f] dark:hover:bg-[#dab61f] hover:text-white dark:hover:text-[#0d0603]">
-                Shop Now
-              </button>
-            </div>
+        {/* Best Sellers */}
+        <motion.section className="bg-[#f7f7f7] py-12">
+          <h3 className="text-3xl text-center mb-8">Best Sellers</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4">
+            {products.map((item, idx) => (
+              <div key={idx} className="bg-white p-4 text-center shadow">
+                <img src={item.image} alt={item.name} className="w-full h-64 object-contain mb-4" />
+                <h4 className="text-xl font-semibold mb-2">{item.name}</h4>
+                <p className="text-sm text-gray-600 mb-2">{item.desc}</p>
+                <p className="text-lg font-bold mb-4">{item.price}</p>
+                <button className="bg-[#79300f] text-white px-4 py-2 rounded">Add to Cart</button>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <button className="bg-[#79300f] text-white px-6 py-3 rounded text-lg">See More</button>
           </div>
         </motion.section>
+
+
+
+        {/* Huntsman Savile Row Section */}
+<motion.section className="bg-white dark:bg-black py-16 px-4 text-center">
+  <h3 className="text-2xl font-bold text-[#79300f] mb-2">Huntsman Savile Row</h3>
+  <p className="text-gray-700 dark:text-gray-300 mb-10 max-w-xl mx-auto">
+    A collection of refined colognes and candles tailored to the modern man.
+  </p>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {products.map((item, idx) => (
+      <div key={idx} className="bg-[#F3F3F3] dark:bg-[#191919] p-4 text-center">
+        <img src={item.image} alt={item.name} className="w-full h-64 object-contain mb-4" />
+        <h4 className="text-xl font-semibold mb-2">{item.name}</h4>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{item.desc}</p>
+        <p className="text-lg font-bold mb-4">{item.price}</p>
+        <button className="bg-[#79300f] text-white px-4 py-2 rounded">Add to Cart</button>
+      </div>
+    ))}
+  </div>
+</motion.section>
+
+
+
+{/* A Scent That Suites Section */}
+<motion.section className="bg-[#f2e4ca] dark:bg-[#2f2f2f] py-16 px-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    {[1, 2].map((_, idx) => (
+      <div key={idx} className="bg-[#e4d3b4] dark:bg-[#3b3b3b] p-6 flex flex-col justify-between h-full">
+        <div className="bg-[#d4c1a6] dark:bg-[#2a2a2a] h-48 mb-6" /> {/* Placeholder image box */}
+        <div>
+          <h4 className="text-xl font-semibold mb-2">A Scent That Suites</h4>
+          <p className="text-sm mb-4">
+            Whether you're compiling a wish list or looking for inspiration, you're at the right place.
+          </p>
+          <button className="bg-[#79300f] text-white px-4 py-2 rounded">Gifts for Him</button>
+        </div>
+      </div>
+    ))}
+  </div>
+</motion.section>
+
+
       </main>
+
+
+      
       <Footer />
     </div>
   );

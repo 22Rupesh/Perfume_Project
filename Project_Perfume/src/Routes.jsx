@@ -7,6 +7,12 @@ import AllFragrancesSection from './pages/AllFregrances';
 import ProductCartSection from './pages/ProductCartSection';
 // Import page components
 import HomePage from './pages/Home';
+import UnisexCollection from './pages/UnisexCollection';
+import GiftCollection from './pages/GiftCollection';
+// import WishlistPage from './components/common/Wishlist';
+import Wishlist from './components/common/Wishlist';
+import ProductPage from './pages/ProductPage';
+
 
 const AppRoutes = () => {
   return (
@@ -18,6 +24,10 @@ const AppRoutes = () => {
         <Route path="/womens-collection" element={<Womenscollection/>} />
         <Route path="/all-fragrances" element={<AllFragrancesSection/>} />
         <Route path="/product-cart" element={<ProductCartSection/>} />
+        <Route path="/unisex-collection" element={<UnisexCollection/>} />
+        <Route path="/gift-collection" element={<GiftCollection/>} />
+        <Route path="/wishlist-collection" element={<Wishlist/>} />
+        <Route path="/product-perfume" element={<ProductPage/>} />
       </Routes>
     </Router>
   ); 
