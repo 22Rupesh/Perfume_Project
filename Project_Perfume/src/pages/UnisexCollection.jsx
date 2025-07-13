@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import Header from "../../components/common/Header";
 import Header from "@/components/common/Header";
-// import Footer from "../../components/common/Footer";
 import Footer from "@/components/common/Footer";
 import { motion } from "framer-motion";
-// import { fadeIn } from "../../variants";
 import { fadeIn } from "@/variants";
 
 // Images

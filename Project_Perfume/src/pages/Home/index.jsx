@@ -1,7 +1,4 @@
 
-
-
-
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import HeroSection from '../../components/common/HeroSection';
@@ -10,16 +7,20 @@ import Card from '../../components/ui/Card';
 import InputField from '../../components/ui/InputField';
 import Checkbox from '../../components/ui/Checkbox';
 import { useEffect, useRef, useState } from 'react';
-
+import { useCart } from '@/CartContext';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../variants';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { FiHeart } from 'react-icons/fi';
+import { useWishlist } from '@/WishlistContext';
 
 const HomePage = () => {
   const [email, setEmail] = useState('');
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const scrollRef = useRef(null);
+  const { addToCart, cartItems } = useCart();
+    const { toggleWishlist, isInWishlist } = useWishlist();
 
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
@@ -31,13 +32,6 @@ const HomePage = () => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
-  const handleSubscribe = () => {
-    if (email && acceptTerms) {
-      alert('Thank you for subscribing!');
-      setEmail('');
-      setAcceptTerms(false);
-    } else alert('Please enter email and accept terms.');
-  };
 
   const cards = [
     { id: 1, name: "Aventus", image: "/images/img_may_16_2025_113008_am_3.png" },
@@ -59,6 +53,39 @@ const HomePage = () => {
   ];
 
   
+    const summerScents = [
+    {
+      id: 4,
+      name: "Citrus Bloom",
+      image: "/images/img_may_16_2025_113008_am_3.png",
+      description: "An expression of lush orange. Sharp yet sweet.",
+      price: 455,
+    },
+    {
+      id: 5,
+      name: "Island Breeze",
+      image: "/images/img_chatgpt_image_may_15_2025_055628_pm_1_1.png",
+      description: "A tropical escape in every spritz.",
+      price: 399,
+    },
+    {
+      id: 6,
+      name: "Sunlit Amber",
+      image: "/images/Export2.png",
+      description: "Amber warmth wrapped in golden sunshine.",
+      price: 430,
+    },
+  ];
+
+
+
+    const handleSubscribe = () => {
+    if (email && acceptTerms) {
+      alert('Thank you for subscribing!');
+      setEmail('');
+      setAcceptTerms(false);
+    } else alert('Please enter email and accept terms.');
+  };
   
 
   return (
@@ -69,39 +96,29 @@ const HomePage = () => {
           <HeroSection />
         </motion.div>
 
-        {/* Fragrant Favourites */}
-        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" className="bg-[#F2F2F2] dark:bg-[#0d0603] py-16 px-6">
+        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" className="py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-[60px] font-dm-serif mb-12">Fragrant Favourites</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {[1, 2, 3].map((_, i) => (
-                <div key={i} className="bg-[#E7DDC6] p-6 rounded-lg shadow text-left">
-                  <div className="mb-4 font-bold text-sm text-red-600 uppercase">
-                    {i === 0 ? 'Bestseller' : i === 1 ? 'New Release' : 'Bestseller'}
-                  </div>
-                  <img src="/images/img_may_16_2025_113008_am_3.png" alt="Aventus" className="h-[300px] w-full object-contain mb-4" />
-                  <h3 className="text-[30px] font-alata">Aventus</h3>
-                  <p className="text-[20px]">Dry Woods, Fruit, Citrus & Fruity</p>
-                  <p className="text-[24px] font-semibold my-2">$455</p>
-                  <Button className="mt-2">Add to Cart</Button>
+              {cards.map((product) => (
+                <div key={product.id} className="bg-[#E7DDC6] p-6 rounded-lg shadow text-left relative">
+                  <button
+                    onClick={() => toggleWishlist(product)}
+                    className="absolute top-4 right-4 text-[#79300f] hover:text-red-600"
+                  >
+                    <FiHeart size={24} className={isInWishlist(product.id) ? 'fill-red-600' : ''} />
+                  </button>
+                  <img src={product.image} alt={product.name} className="h-[300px] w-full object-contain mb-4" />
+                  <h3 className="text-[30px] font-alata">{product.name}</h3>
+                  <p className="text-[20px]">Fragrance Notes</p>
+                  <p className="text-[24px] font-semibold my-2">${product.price}</p>
+                  <Button onClick={() => addToCart(product)}>Add to Cart</Button>
                 </div>
               ))}
             </div>
           </div>
         </motion.section>
 
-        {/* Marmalade & Mini Collection */}
-        {/* <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" className="bg-[#E7DDC6] dark:bg-[#021914] py-16 px-6">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-            {['Orange Marmalade Cologne', 'New Mini Collection'].map((label, i) => (
-              <div key={i} className="text-center">
-                <img src="/images/WhatsApp Image 2025-05-02 at 16.59.15_10065fa1.png" alt={label} className="w-full h-[400px] object-cover mb-4" />
-                <h3 className="text-[30px] font-alata mb-2">{label}</h3>
-                <Button variant="primary">Shop Now</Button>
-              </div>
-            ))}
-          </div>
-        </motion.section> */}
 
             <motion.section
       variants={fadeIn("up", 0.2)}
@@ -143,22 +160,29 @@ const HomePage = () => {
     </motion.section>
 
         {/* The Scents of Summer */}
-        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" className="bg-[#F2F2F2] dark:bg-[#0d0603] py-16 px-6">
+        <motion.section variants={fadeIn("up", 0.2)} initial="hidden" whileInView="show" className="py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-[60px] font-dm-serif mb-12">The Scents of Summer</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {[1, 2, 3].map((_, i) => (
-                <div key={i} className="bg-[#E7DDC6] p-6 rounded-lg shadow text-left">
-                  <img src="/images/img_may_16_2025_113008_am_3.png" alt="Aventus" className="h-[300px] w-full object-contain mb-4" />
-                  <h3 className="text-[30px] font-alata">Aventus</h3>
-                  <p className="text-[20px]">An expression of Lush Orange. Sharp yet sweet.</p>
-                  <p className="text-[24px] font-semibold my-2">$455</p>
-                  <Button className="mt-2">Add to Cart</Button>
+              {summerScents.map((product) => (
+                <div key={product.id} className="bg-[#E7DDC6] p-6 rounded-lg shadow text-left relative">
+                  <button
+                    onClick={() => toggleWishlist(product)}
+                    className="absolute top-4 right-4 text-[#79300f] hover:text-red-600"
+                  >
+                    <FiHeart size={24} className={isInWishlist(product.id) ? 'fill-red-600' : ''} />
+                  </button>
+                  <img src={product.image} alt={product.name} className="h-[300px] w-full object-contain mb-4" />
+                  <h3 className="text-[30px] font-alata">{product.name}</h3>
+                  <p className="text-[20px]">{product.description}</p>
+                  <p className="text-[24px] font-semibold my-2">${product.price}</p>
+                  <Button onClick={() => addToCart(product)}>Add to Cart</Button>
                 </div>
               ))}
             </div>
           </div>
         </motion.section>
+
 
 
         {/* Signature Collection */}
@@ -240,6 +264,9 @@ const HomePage = () => {
 </motion.section>
 
 
+
+
+
         {/* Signature Collection - already exists */}
         {/* Newsletter section - already exists */}
       </main>
@@ -249,3 +276,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

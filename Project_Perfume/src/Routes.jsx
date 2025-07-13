@@ -9,15 +9,18 @@ import ProductCartSection from './pages/ProductCartSection';
 import HomePage from './pages/Home';
 import UnisexCollection from './pages/UnisexCollection';
 import GiftCollection from './pages/GiftCollection';
-// import WishlistPage from './components/common/Wishlist';
 import Wishlist from './components/common/Wishlist';
 import ProductPage from './pages/ProductPage';
-
+import { CartProvider } from './CartContext';
+import { Toaster } from 'react-hot-toast';
+import { WishlistProvider } from './WishlistContext';
 
 const AppRoutes = () => {
   return (
     <Router>
-      <Routes>
+      <CartProvider>
+        <WishlistProvider>
+              <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/universal-collection" element={<UniversalCollection />} />
         <Route path="/mens-collection" element={<MensCollection />} />
@@ -29,6 +32,11 @@ const AppRoutes = () => {
         <Route path="/wishlist-collection" element={<Wishlist/>} />
         <Route path="/product-perfume" element={<ProductPage/>} />
       </Routes>
+        </WishlistProvider>
+
+      <Toaster position="top-center" />
+      </CartProvider>
+
     </Router>
   ); 
 };
