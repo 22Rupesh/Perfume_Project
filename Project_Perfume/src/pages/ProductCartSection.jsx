@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
@@ -38,21 +37,20 @@ const ProductCartSection = () => {
                 <p className="text-sm">${item.price}</p>
                 
                 <div className="flex justify-between items-center mt-4 gap-3">
-  {/* Remove Button */}
-  <button
-    onClick={() => removeFromCart(item.id)}
-    className="bg-red-700 hover:bg-red-800 text-white text-sm font-medium py-2 px-4 rounded shadow"
-  >
-    Remove
-  </button>
-
-  {/* Shop Now Button */}
-  <button
-    onClick={() => window.location.href = '/'}
-    className="bg-green-700 hover:bg-green-800 text-white text-sm font-medium py-2 px-4 rounded shadow"
-  >
-    Shop Now
-  </button>
+                  {/* Remove Button */}
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="bg-red-700 hover:bg-red-800 text-white text-sm font-medium py-2 px-4 rounded shadow"
+                  >
+                    Remove
+                  </button>
+                  {/* Shop Now Button */}
+                  <button
+                    onClick={() => window.location.href = '/checkout'}
+                    className="bg-green-700 hover:bg-green-800 text-white text-sm font-medium py-2 px-4 rounded shadow"
+                  >
+                    Shop Now
+                  </button>
                 </div>
               </div>
             ))}

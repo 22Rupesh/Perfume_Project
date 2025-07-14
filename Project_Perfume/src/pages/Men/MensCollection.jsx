@@ -59,7 +59,7 @@ const MensCollection = () => {
     const inCart = isInCart(product.id);
     return inCart ? (
       <button
-        onClick={() => (window.location.href = '/ProductCartSection')}
+        onClick={() => (window.location.href = '/checkout')}
         className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded shadow"
       >
         Shop Now
