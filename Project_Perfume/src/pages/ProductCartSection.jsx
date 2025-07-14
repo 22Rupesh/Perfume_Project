@@ -46,7 +46,7 @@ const ProductCartSection = () => {
                   </button>
                   {/* Shop Now Button */}
                   <button
-                    onClick={() => window.location.href = '/checkout'}
+                    onClick={() => window.location.href = '/Checkout'}
                     className="bg-green-700 hover:bg-green-800 text-white text-sm font-medium py-2 px-4 rounded shadow"
                   >
                     Shop Now
