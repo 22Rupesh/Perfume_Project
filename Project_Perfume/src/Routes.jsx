@@ -28,7 +28,7 @@ const AppRoutes = () => {
             <Route path="/womens-collection" element={<Womenscollection/>} />
             <Route path="/all-fragrances" element={<AllFragrancesSection/>} />
             <Route path="/product-cart" element={<ProductCartSection/>} />
-            <Route path="/checkout" element={<Checkout/>} />
+            <Route path="/Checkout" element={<Checkout/>} />
             <Route path="/unisex-collection" element={<UnisexCollection/>} />
             <Route path="/gift-collection" element={<GiftCollection/>} />
             <Route path="/wishlist-collection" element={<Wishlist/>} />
