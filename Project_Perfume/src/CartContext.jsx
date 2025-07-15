@@ -1,5 +1,3 @@
-
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
@@ -7,7 +5,7 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const [isInitialized, setIsInitialized] = useState(false); // <- new state
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Load cart from localStorage only after component mounts (client-side)
   useEffect(() => {
@@ -45,8 +43,13 @@ export const CartProvider = ({ children }) => {
     toast.success(`${product?.name || 'Item'} removed from cart`);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+    toast.success('Cart cleared');
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, setCartItems, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );

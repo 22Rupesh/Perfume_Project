@@ -5,6 +5,7 @@ import MensCollection from './pages/Men/MensCollection';
 import Womenscollection from './pages/Page2/Womens';
 import AllFragrancesSection from './pages/AllFregrances';
 import ProductCartSection from './pages/ProductCartSection';
+import Checkout from './pages/Checkout';
 // Import page components
 import HomePage from './pages/Home';
 import UnisexCollection from './pages/UnisexCollection';
@@ -20,23 +21,22 @@ const AppRoutes = () => {
     <Router>
       <CartProvider>
         <WishlistProvider>
-              <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/universal-collection" element={<UniversalCollection />} />
-        <Route path="/mens-collection" element={<MensCollection />} />
-        <Route path="/womens-collection" element={<Womenscollection/>} />
-        <Route path="/all-fragrances" element={<AllFragrancesSection/>} />
-        <Route path="/product-cart" element={<ProductCartSection/>} />
-        <Route path="/unisex-collection" element={<UnisexCollection/>} />
-        <Route path="/gift-collection" element={<GiftCollection/>} />
-        <Route path="/wishlist-collection" element={<Wishlist/>} />
-        <Route path="/product-perfume" element={<ProductPage/>} />
-      </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/universal-collection" element={<UniversalCollection />} />
+            <Route path="/mens-collection" element={<MensCollection />} />
+            <Route path="/womens-collection" element={<Womenscollection/>} />
+            <Route path="/all-fragrances" element={<AllFragrancesSection/>} />
+            <Route path="/product-cart" element={<ProductCartSection/>} />
+            <Route path="/Checkout" element={<Checkout/>} />
+            <Route path="/unisex-collection" element={<UnisexCollection/>} />
+            <Route path="/gift-collection" element={<GiftCollection/>} />
+            <Route path="/wishlist-collection" element={<Wishlist/>} />
+            <Route path="/product-perfume" element={<ProductPage/>} />
+          </Routes>
         </WishlistProvider>
-
-      <Toaster position="top-center" />
+        <Toaster position="top-center" />
       </CartProvider>
-
     </Router>
   ); 
 };
