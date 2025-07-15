@@ -1,10 +1,10 @@
 import mongoose from 'mongoose'
 
 const userSchemea = mongoose.Schema({
-    name:{
-        type:String,
-        required :true
-    },
+    // name:{
+    //     type:String,
+    //     required :true
+    // },
     email:{
         type:String,
         required:true,
@@ -14,6 +14,18 @@ const userSchemea = mongoose.Schema({
         type:String,
         required:true,
     },
-})
+    isVerified:{
+        type:Boolean,
+        default:false
+    },
+    emailOtp:{
+        type:String,
+        default:''
+    },
+    emailOtpExpiry:{
+        type:Date
+    }
 
-export const User = mongoose.model('User', userSchemea)
+}, {timestamps:true})
+
+export const User = mongoose.models.user || mongoose.model('User', userSchemea)

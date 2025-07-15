@@ -1,11 +1,12 @@
 import express from 'express'
 const app = express();
+import dotenv from "dotenv"
+dotenv.config();
 import cookieparser from 'cookie-parser';
 import userRoutes from './routes/UserRoutes.js'
 import cors from "cors"
-import dotenv from "dotenv"
-dotenv.config();
-import { connectDB } from './db/db.js';
+
+import { connectDB } from './utils/db.js';
 
 
 //middlewares
