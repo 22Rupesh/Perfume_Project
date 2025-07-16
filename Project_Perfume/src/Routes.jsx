@@ -36,7 +36,7 @@ const AppRoutes = () => {
             <Route path="/wishlist-collection" element={<Wishlist/>} />
             <Route path="/product-perfume" element={<ProductPage/>} />
            
-            <Route path="/login" element={<Login/>} />
+          
           </Routes>
         </WishlistProvider>
         <Toaster position="top-center" />
