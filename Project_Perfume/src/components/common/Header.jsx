@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiSearch, FiX, FiUser, FiShoppingCart, FiHeart } from "react-icons/fi";
 
@@ -26,17 +21,17 @@ const navItems = [
     ],
   },
   {
-    label: "Men’s Scents",
+    label: "Men's Scents",
     path: "/mens-collection",
     items: ["Petal Whisper", "Bloomé Dusk", "Rose Alchemy", "Lush Reverie"],
   },
   {
-    label: "Women’s Scents",
+    label: "Women's Scents",
     path: "/womens-collection",
     items: ["Petal Whisper", "Bloomé Dusk", "Rose Alchemy", "Lush Reverie", "Moonlit Peony"],
   },
   {
-    label: "Unisex’s Scents",
+    label: "Unisex's Scents",
     path: "/unisex-collection",
     items: ["Petal Whisper", "Bloomé Dusk", "Rose Alchemy", "Lush Reverie"],
   },
@@ -116,19 +111,29 @@ const Header = ({ darkMode, setDarkMode }) => {
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <Link to={nav.path} className="hover:text-[#b14527] transition">
+              <Link to={nav.path} className="hover:text-[#b14527] transition duration-200">
                 {nav.label}
               </Link>
 
               {/* Dropdown */}
               <AnimatePresence>
-                {hoveredIndex === idx && (
+                {hoveredIndex === idx && nav.items && nav.items.length > 0 && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 bg-white text-black dark:bg-[#1a1a1a] dark:text-white shadow-lg p-6 rounded-lg z-50 w-[800px] grid grid-cols-5 gap-6"
+                    className="absolute top-full mt-4 bg-white text-black dark:bg-[#1a1a1a] dark:text-white shadow-lg p-6 rounded-lg z-50 w-[800px] grid grid-cols-5 gap-6"
+                    style={{
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      minWidth: '800px',
+                      maxWidth: '90vw',
+                      marginLeft: 'max(-50vw + 50%, -400px)',
+                      marginRight: 'max(-50vw + 50%, -400px)'
+                    }}
+                    onMouseEnter={() => setHoveredIndex(idx)}
+                    onMouseLeave={() => setHoveredIndex(null)}
                   >
                     {/* Left Items */}
                     <div className="col-span-4 grid grid-cols-4 gap-4">
@@ -136,7 +141,7 @@ const Header = ({ darkMode, setDarkMode }) => {
                         <Link
                           key={i}
                           to={`/products/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="hover:underline text-sm"
+                          className="hover:underline text-sm hover:text-[#b14527] transition duration-200"
                         >
                           {item}
                         </Link>
@@ -167,8 +172,8 @@ const Header = ({ darkMode, setDarkMode }) => {
         {menuOpen && (
           <div className="md:hidden bg-white dark:bg-black text-[#79300f] dark:text-white px-4 py-6 space-y-4">
             <Link to="/" className="block">New</Link>
-            <Link to="/mens-collection" className="block">Men’s Scents</Link>
-            <Link to="/womens-collection" className="block">Women’s Scents</Link>
+            <Link to="/mens-collection" className="block">Men's Scents</Link>
+            <Link to="/womens-collection" className="block">Women's Scents</Link>
             <Link to="/unisex-collection" className="block">Unisex Scents</Link>
             <Link to="/gift-collection" className="block">Gifts</Link>
           </div>
@@ -182,5 +187,3 @@ const Header = ({ darkMode, setDarkMode }) => {
 };
 
 export default Header;
-
-
