@@ -10,10 +10,13 @@ import { connectDB } from './utils/db.js';
 
 
 //middlewares
-app.use(cookieparser())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cookieparser())
+app.use(cors({
+    origin: "http://localhost:4028", // your frontend origin
+    credentials: true,               // allow cookies/credentials
+}))
 
 
 

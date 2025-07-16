@@ -355,6 +355,7 @@ const HomePage = () => {
               and the secrets behind our scent creations.
             </p>
 
+<<<<<<< Updated upstream
             <div className="flex items-center gap-4 justify-center mb-4">
               <InputField
                 type="email"
@@ -377,6 +378,40 @@ const HomePage = () => {
             </div>
           </div>
         </motion.section>
+=======
+    <div className="flex items-center gap-4 justify-center mb-4">
+     
+      <input type="email"
+      placeholder='Enter your email'
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className='bg-white text-[#79300f] placeholder-gray-300 px-4 py-1 w-2/3 outline-none h-12 rounded border  border-[#79300f]' />
+
+      <Button
+      className='rounded h-12 text-center'
+      onClick={handleSubscribe}>Subscribe</Button>
+    </div>
+
+    <div className="flex items-center justify-center gap-2">
+      <Checkbox
+        checked={acceptTerms}
+        onChange={(e) => setAcceptTerms(e.target.checked)}
+        className='h-5 w-5'
+      />
+      <span className="text-sm dark:text-white">
+        By checking the box, I accept the terms and conditions.
+      </span>
+    </div>
+  </div>
+</motion.section>
+
+
+
+
+
+        {/* Signature Collection - already exists */}
+        {/* Newsletter section - already exists */}
+>>>>>>> Stashed changes
       </main>
       <Footer />
     </div>

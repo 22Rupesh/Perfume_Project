@@ -38,7 +38,8 @@ export const register = async (req, res) => {
             user: {
                 _id: newUser._id,
                 email: newUser.email
-            }
+            },
+            success:true
         })
     } catch (error) {
         console.log(error);
