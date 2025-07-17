@@ -15,6 +15,8 @@ import ProductPage from './pages/ProductPage';
 import { CartProvider } from './CartContext';
 import { Toaster } from 'react-hot-toast';
 import { WishlistProvider } from './WishlistContext';
+import VerifyEmail from './components/common/VerifyEmail';
+import Login from './components/common/Login';
 
 const AppRoutes = () => {
   return (
@@ -33,6 +35,8 @@ const AppRoutes = () => {
             <Route path="/gift-collection" element={<GiftCollection/>} />
             <Route path="/wishlist-collection" element={<Wishlist/>} />
             <Route path="/product-perfume" element={<ProductPage/>} />
+           
+          
           </Routes>
         </WishlistProvider>
         <Toaster position="top-center" />

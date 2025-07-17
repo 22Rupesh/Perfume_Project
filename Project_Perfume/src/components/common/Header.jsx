@@ -4,6 +4,8 @@ import { FiMenu, FiSearch, FiX, FiUser, FiShoppingCart, FiHeart } from "react-ic
 import { Link } from "react-router-dom";
 import SignupModal from "./SignupModal";
 import { motion, AnimatePresence } from "framer-motion";
+import VerifyEmail from "./VerifyEmail";
+import Login from "./Login";
 
 const navItems = [
   {
@@ -47,6 +49,9 @@ const Header = ({ darkMode, setDarkMode }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isVerifyOpen, setIsVerifyOpen] = useState(false)
+  const [isLoginOpen, setIsLoginOpen] = useState(false)
+  const [email, setEmail] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
@@ -82,23 +87,23 @@ const Header = ({ darkMode, setDarkMode }) => {
           <h1 className="text-3xl font-bold tracking-wider">Vesarii</h1>
 
           {/* Right Icons */}
-{/* Right Icons */}
-<div className="flex items-center space-x-4 z-50">
-  {/* Wishlist Icon */}
-  <Link to="/wishlist-collection" className="text-2xl">
-    <FiHeart className={darkMode ? "text-white" : "text-black"} />
-  </Link>
+          {/* Right Icons */}
+          <div className="flex items-center space-x-4 z-50">
+            {/* Wishlist Icon */}
+            <Link to="/wishlist-collection" className="text-2xl">
+              <FiHeart className={darkMode ? "text-white" : "text-black"} />
+            </Link>
 
-  {/* Cart Icon */}
-  <Link to="/product-cart" className="text-2xl">
-    <FiShoppingCart className={darkMode ? "text-white" : "text-black"} />
-  </Link>
+            {/* Cart Icon */}
+            <Link to="/product-cart" className="text-2xl">
+              <FiShoppingCart className={darkMode ? "text-white" : "text-black"} />
+            </Link>
 
-  {/* Login Icon */}
-  <button onClick={() => setIsSignupOpen(true)} className="text-2xl">
-    <FiUser className={darkMode ? "text-white" : "text-black"} />
-  </button>
-</div>
+            {/* Login Icon */}
+            <button onClick={() => setIsSignupOpen(true)} className="text-2xl">
+              <FiUser className={darkMode ? "text-white" : "text-black"} />
+            </button>
+          </div>
 
         </div>
 
@@ -181,9 +186,21 @@ const Header = ({ darkMode, setDarkMode }) => {
       </header>
 
       {/* Signup Modal */}
-      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
+      <SignupModal isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)}
+        openVerify={() => {
+          setIsSignupOpen(false)
+          setIsVerifyOpen(true)
+        }}
+        setEmail={setEmail} />
+      <VerifyEmail isOpen={isVerifyOpen} onClose={() => setIsVerifyOpen(false)} 
+        openLogin={()=>{
+          setIsVerifyOpen(false)
+          setIsLoginOpen(true)
+        }}
+        email={email} />
+        <Login isOpen={isLoginOpen} onClose={()=>setIsLoginOpen(false)} />
     </>
-  );
+  )
 };
 
 export default Header;

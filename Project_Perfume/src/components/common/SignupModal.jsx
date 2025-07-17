@@ -1,9 +1,41 @@
 // components/SignupModal.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import perfumeImage from '../../../public/images/Rectangle 58.png'; // update path as needed
+import { Link } from 'react-router-dom'
+import axios from 'axios';
 
-const SignupModal = ({ isOpen, onClose }) => {
+const SignupModal = ({ isOpen, onClose , openVerify ,setEmail }) => {
   if (!isOpen) return null;
+ 
+  
+  const [input, setInput] = useState({
+    email: "",
+    password: ""
+  })
+
+  const changeInputHandler = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value })
+  }
+
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post('http://localhost:8000/user/signup', {
+        email: input.email,
+        password: input.password
+      }, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      })
+      if (res.data.success) {
+        setEmail(input.email)
+        openVerify()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
@@ -25,20 +57,36 @@ const SignupModal = ({ isOpen, onClose }) => {
             Enjoy early access to new collections, exclusive offers, and a welcome treat of 10% off your first order when you sign up to receive our emails and texts.
           </p>
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="border border-gray-400 px-4 py-2 mb-4 w-full rounded"
-          />
-          <input
-            type="text"
-            placeholder="Mobile Number"
-            className="border border-gray-400 px-4 py-2 mb-4 w-full rounded"
-          />
 
-          <button className="bg-[#1a1a1a] text-white py-2 rounded hover:bg-[#333]">
-            Sign Up
-          </button>
+          <form action="" onSubmit={submitHandler}>
+
+            <div className='flex flex-col gap-4'>
+              <input
+                type="email"
+                name="email"
+                value={input.email}
+                onChange={changeInputHandler}
+                placeholder='Email'
+                className='h-10 placeholder-gray-400 px-4 py-1 rounded border border-gray-400 outline-none'
+              />
+
+              <input
+                type="password"
+                name="password"
+                placeholder='Password'
+                value={input.password}
+                onChange={changeInputHandler}
+                className='h-10 placeholder-gray-400 px-4 py-1 rounded border border-gray-400 outline-none'
+              />
+
+              <button
+              className='py-2 rounded text-white bg-[#62270d]'
+              >
+                Sign Up
+              </button>
+            </div>
+
+          </form>
 
           <button
             className="mt-4 text-sm text-gray-500 hover:text-red-600"
@@ -46,8 +94,16 @@ const SignupModal = ({ isOpen, onClose }) => {
           >
             Cancel
           </button>
+
+          {/* <div className="text-center  mt-2 text-sm">
+            <span className="text-gray-600">Already have an account? </span>
+            <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium">
+              Login
+            </Link>
+          </div> */}
         </div>
       </div>
+    
     </div>
   );
 };
