@@ -191,6 +191,10 @@ const Header = ({ darkMode, setDarkMode }) => {
           setIsSignupOpen(false)
           setIsVerifyOpen(true)
         }}
+        openLogin ={()=>{
+          setIsSignupOpen(false)
+          setIsLoginOpen(true)
+        }}
         setEmail={setEmail} />
       <VerifyEmail isOpen={isVerifyOpen} onClose={() => setIsVerifyOpen(false)} 
         openLogin={()=>{

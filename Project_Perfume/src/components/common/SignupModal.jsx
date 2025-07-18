@@ -1,17 +1,18 @@
 // components/SignupModal.jsx
 import React, { useState } from 'react';
 import perfumeImage from '../../../public/images/Rectangle 58.png'; // update path as needed
-import { Link } from 'react-router-dom'
+import { USER_API_END_POINT } from '@/api/constant';
 import axios from 'axios';
-
-const SignupModal = ({ isOpen, onClose , openVerify ,setEmail }) => {
+import { Loader2 } from 'lucide-react';
+const SignupModal = ({ isOpen, onClose, openLogin, openVerify, setEmail }) => {
   if (!isOpen) return null;
- 
-  
+
+
   const [input, setInput] = useState({
     email: "",
     password: ""
   })
+  const [loading, setLoading] = useState(false);
 
   const changeInputHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value })
@@ -20,7 +21,8 @@ const SignupModal = ({ isOpen, onClose , openVerify ,setEmail }) => {
   const submitHandler = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:8000/user/signup', {
+      setLoading(true);
+      const res = await axios.post(`${USER_API_END_POINT}/signup`, {
         email: input.email,
         password: input.password
       }, {
@@ -32,7 +34,10 @@ const SignupModal = ({ isOpen, onClose , openVerify ,setEmail }) => {
         openVerify()
       }
     } catch (error) {
-      console.log(error)
+      console.log(error.message)
+    }
+    finally {
+      setLoading(false);
     }
 
   }
@@ -79,14 +84,29 @@ const SignupModal = ({ isOpen, onClose , openVerify ,setEmail }) => {
                 className='h-10 placeholder-gray-400 px-4 py-1 rounded border border-gray-400 outline-none'
               />
 
-              <button
-              className='py-2 rounded text-white bg-[#62270d]'
-              >
-                Sign Up
-              </button>
+
+              {loading ?
+                <button
+                  className='py-2 rounded text-white flex items-center justify-center bg-[#62270d]'>
+                  <Loader2 className="mr-2 h-6 w-4 animate-spin" />
+                  Loading
+                </button>
+                :
+                <button
+                  className='py-2 rounded text-white bg-[#62270d]'>
+                  Sign Up
+                </button>
+              }
             </div>
 
           </form>
+
+          <div className="text-center  mt-2 text-sm">
+            <span className="text-gray-600">Already have an account? </span>
+            <span className='text-blue-600 cursor-pointer' onClick={openLogin}>
+              Login
+            </span>
+          </div>
 
           <button
             className="mt-4 text-sm text-gray-500 hover:text-red-600"
@@ -94,16 +114,9 @@ const SignupModal = ({ isOpen, onClose , openVerify ,setEmail }) => {
           >
             Cancel
           </button>
-
-          {/* <div className="text-center  mt-2 text-sm">
-            <span className="text-gray-600">Already have an account? </span>
-            <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium">
-              Login
-            </Link>
-          </div> */}
         </div>
       </div>
-    
+
     </div>
   );
 };
